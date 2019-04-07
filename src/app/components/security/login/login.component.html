@@ -1,15 +1,26 @@
 <div class="row d-flex justify-content-center mt-5">
   <div class="col-3">
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Usuário" />
-    </div>
-    <div class="form-group">
-      <input type="password" class="form-control" placeholder="Senha" />
-    </div>
-    <div class="form-group">
-      <button class="btn btn-primary btn-block">
-        Entrar
-      </button>
-    </div>
+    <form #form="ngForm" (ngSubmit)="login()">
+      <div class="alert alert-danger" role="alert" *ngIf="message">
+        Credenciais inválidas.
+      </div>
+      <div class="form-group">
+        <input type="text"
+               name="usuario"
+               class="form-control"
+               placeholder="Usuário" [(ngModel)]="user.username" />
+      </div>
+      <div class="form-group">
+        <input type="password"
+               name="senha"
+               class="form-control"
+               placeholder="Senha" [(ngModel)]="user.password" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" (click)="login()">
+          Entrar
+        </button>
+      </div>
+    </form>
   </div>
 </div>

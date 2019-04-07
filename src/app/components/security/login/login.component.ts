@@ -30,6 +30,11 @@ export class LoginComponent implements OnInit {
   login() {
     this.message = '';
     this.userService.login(this.user).subscribe((userAuthentication: CurrentUser) => {
+
+      console.log("================");
+      console.log(userAuthentication);
+      console.log("================");
+
       this.shared.token = userAuthentication.token;
       this.shared.user = userAuthentication.user;
       this.shared.user.profile = userAuthentication.user.profile.replace("ROLE_", "");

@@ -7,6 +7,9 @@ import { CustomHeaderComponent } from './custom-header/custom-header.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/security/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
+import {UserService} from './services/user.service';
+import {SharedService} from './services/shared.service';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,13 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    SharedService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

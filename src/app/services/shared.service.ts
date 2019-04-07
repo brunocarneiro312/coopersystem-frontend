@@ -15,6 +15,7 @@ export class SharedService {
   showTemplate = new EventEmitter<boolean>();
 
   constructor() {
+    this.showTemplate.emit(false);
     return SharedService.instance = SharedService.instance || this;
   }
 
