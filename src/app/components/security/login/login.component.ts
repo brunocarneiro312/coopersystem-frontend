@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   user = new User('','','',[]);
   shared: SharedService;
   message: string;
+  responseStatus: string;
 
   constructor(
     private userService: UserService,
@@ -39,11 +40,15 @@ export class LoginComponent implements OnInit {
       this.shared.token = null;
       this.shared.user = null;
       this.shared.showTemplate.emit(false);
-      this.message = `${err.error} (${err.status})`;
+      this.responseStatus = err.status;
 
-      console.log("===================");
-      console.log(err);
-      console.log("===================");
+      if (err.status !== 0) {
+        this.message = `${err.error} (${err.status})`;
+      }
+      else {
+        this.message = "Serviço indisponível.";
+      }
+
     });
   }
 

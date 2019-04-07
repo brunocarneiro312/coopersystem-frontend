@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SharedService} from '../services/shared.service';
 
 @Component({
   selector: 'app-custom-header',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomHeaderComponent implements OnInit {
 
-  constructor() { }
+  sharedService: SharedService;
 
-  ngOnInit() {
+  constructor() {
+    this.sharedService = SharedService.getIntance();
   }
 
+  ngOnInit() {
+    console.log("================");
+    console.log(this.sharedService.user);
+    console.log("================");
+  }
+
+  logout() {
+    console.log(this.sharedService.user);
+    this.sharedService.user = undefined;
+    console.log(this.sharedService.user);
+  }
 }
