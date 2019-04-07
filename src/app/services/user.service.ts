@@ -8,8 +8,10 @@ import {COOPERSYSTEM_API} from './coopersystem.api';
 })
 export class UserService {
 
-  constructor(private http: HttpClient) {
+  private http: HttpClient;
 
+  constructor(http: HttpClient) {
+    this.http = http;
   }
 
   /**
