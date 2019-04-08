@@ -4,14 +4,14 @@
       <table class="table table-sm table-hover table-striped">
         <thead>
         <tr>
-          <th>Nome</th>
-          <th>CPF</th>
-          <th>Usuário</th>
-          <th>Perfil</th>
-          <th></th>
+          <th class="text-center">Nome</th>
+          <th class="text-center">CPF</th>
+          <th class="text-center">Usuário</th>
+          <th class="text-center">Perfil</th>
+          <th class="text-center"></th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
           <tr *ngFor="let user of users; let i = index">
             <td>{{user.nome}}</td>
             <td>{{user.cpf | mask: '000.000.000-00' }}</td>
@@ -33,15 +33,15 @@
         <table class="table table-sm table-hover table-striped">
           <thead>
           <tr>
-            <th>CEP</th>
-            <th>Logradouro</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>UF</th>
-            <th>Complemento</th>
+            <th class="text-center">CEP</th>
+            <th class="text-center">Logradouro</th>
+            <th class="text-center">Bairro</th>
+            <th class="text-center">Cidade</th>
+            <th class="text-center">UF</th>
+            <th class="text-center">Complemento</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody class="text-center">
           <tr>
             <td>{{ userDetail.endereco.cep }}</td>
             <td>{{ userDetail.endereco.logradouro }}</td>
@@ -62,11 +62,11 @@
         <table class="table table-sm table-hover table-striped">
           <thead>
           <tr>
-            <th>Telefone</th>
-            <th>Tipo</th>
+            <th class="text-center">Telefone</th>
+            <th class="text-center">Tipo</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody class="text-center">
           <tr *ngFor="let telefone of userDetail.telefones">
             <td>{{ telefone.numero }}</td>
             <td>{{ telefone.tipoTelefoneEnum }}</td>
@@ -80,10 +80,10 @@
         <table class="table table-sm table-hover table-striped">
           <thead>
           <tr>
-            <th>Email</th>
+            <th class="text-center">Email</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody class="text-center">
           <tr *ngFor="let e of userDetail.emails">
             <td>{{ e.email }}</td>
           </tr>
