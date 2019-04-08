@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
     this.userService.delete(userId).subscribe(response => {
       this.listarUsuarios();
       this.message = 'Usuário removido.';
+      this.userDetail = undefined;
     }, err => {
       this.message = 'Erro ao remover usuário';
       this.responseStatus = err.status;
