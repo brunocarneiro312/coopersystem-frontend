@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row d-flex mt-5">
     <div class="col pt-2 pb-2">
+      <div [className]="responseStatus == 0 ? 'alert alert-danger' : 'alert alert-success'" role="alert" *ngIf="message">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex">
+    <div class="col pt-2 pb-2">
       <h4>Dados do usuário</h4>
       <table class="table table-sm table-hover table-striped">
         <thead>
@@ -94,6 +101,15 @@
           </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex">
+    <div class="col pt-2 pb-2 text-right">
+      <div *ngIf="userDetail" [hidden]="!isAdmin()">
+        <button class="btn btn-danger" (click)="deletarUsuario(userDetail.id)" [hidden]="shared.user.username === userDetail.username">
+          Deletar usuário
+        </button>
       </div>
     </div>
   </div>
