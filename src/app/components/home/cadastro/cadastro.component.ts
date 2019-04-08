@@ -49,6 +49,14 @@ export class CadastroComponent implements OnInit {
   }
 
   adicionarEmail() {
+
+    let p = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+
+    if (!p.test(this.email)) {
+      this.message = "Email inválido. Deve manter o formato 'email@email.com'";
+      return;
+    }
+
     this.user.emails.push(new EmailModel(this.email));
     this.email = undefined;
   }

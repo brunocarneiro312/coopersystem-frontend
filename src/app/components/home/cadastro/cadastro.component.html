@@ -102,7 +102,11 @@
 
         <b>E-mails</b>
         <div class="form-group">
-          <input type="text" name="email" class="form-control" [(ngModel)]="email" placeholder="email@email.com"/>
+          <input type="text"
+                 name="email"
+                 class="form-control" [(ngModel)]="email"
+                 pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                 placeholder="email@email.com"/>
         </div>
         <div class="form-group text-right">
           <button class="btn btn-primary" (click)="adicionarEmail()">
