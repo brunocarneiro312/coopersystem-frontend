@@ -19,6 +19,7 @@ export class CadastroComponent implements OnInit {
   email: string;
   message: string;
   responseStatus: string;
+  confirmPassword: string;
 
   cep: string;
   user: User = new User('', '', '',
@@ -64,8 +65,15 @@ export class CadastroComponent implements OnInit {
       return;
     }
 
+    if (this.user.password != this.confirmPassword) {
+      this.message = 'O password inserido não bate com a confirmação';
+      return;
+    }
+
     this.user.cpf = this.user.cpf.replace('.', '')
       .replace('-', '');
+
+    this.user.endereco.cep = this.user.endereco.cep.replace('-', '');
 
     return this.userService.createOrUpdate(this.user).subscribe((response :User) => {
       if (response.username != null) {
