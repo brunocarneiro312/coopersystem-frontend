@@ -41,6 +41,35 @@
         <table class="table table-sm table-hover table-striped">
           <thead>
           <tr>
+            <th>CEP</th>
+            <th>Logradouro</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>UF</th>
+            <th>Complemento</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>{{ userDetail.endereco.cep }}</td>
+            <td>{{ userDetail.endereco.logradouro }}</td>
+            <td>{{ userDetail.endereco.bairro }}</td>
+            <td>{{ userDetail.endereco.cidade }}</td>
+            <td>{{ userDetail.endereco.uf }}</td>
+            <td>{{ userDetail.endereco.complemento }}</td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex">
+    <div class="col">
+      <div *ngIf="userDetail">
+        <table class="table table-sm table-hover table-striped">
+          <thead>
+          <tr>
             <th>Telefone</th>
             <th>Tipo</th>
           </tr>
