@@ -8,10 +8,6 @@
           <th>CPF</th>
           <th>Usuário</th>
           <th>Perfil</th>
-          <th>Logradouro</th>
-          <th>Bairro</th>
-          <th>Cidade</th>
-          <th>UF</th>
           <th></th>
         </tr>
         </thead>
@@ -21,10 +17,6 @@
             <td>{{user.cpf | mask: '000.000.000-00' }}</td>
             <td>{{user.username}}</td>
             <td>{{user.authorities[0].name.substring(5)}}</td>
-            <td>{{user.endereco.logradouro}}</td>
-            <td>{{user.endereco.bairro}}</td>
-            <td>{{user.endereco.cidade}}</td>
-            <td>{{user.endereco.uf}}</td>
             <td>
               <button class="btn btn-secondary" (click)="showDetails(user.id)">
                 Detalhes
@@ -83,8 +75,6 @@
         </table>
       </div>
     </div>
-  </div>
-  <div class="row d-flex">
     <div class="col">
       <div *ngIf="userDetail">
         <table class="table table-sm table-hover table-striped">
