@@ -21,7 +21,7 @@ export class AuthInterceptor implements HttpInterceptor {
       .set('Content-Type', 'application/json; charset=utf-8')
       .set('Authorization', 'Bearer ' + this.shared.token);
 
-    if (this.shared.isLoggedIn() && req.url != "https://viacep.com.br/ws/70765110/json/") {
+    if (this.shared.isLoggedIn() && req.url.substring(0, 18) != "https://viacep.com") {
       authRequest = req.clone({
         headers: headers
       });
