@@ -13,9 +13,10 @@ import {FormsModule} from '@angular/forms';
 import {AuthInterceptor} from './components/security/auth.interceptor';
 import {AuthGuard} from './components/security/auth.guard';
 import {ClienteComponent} from './components/home/cliente/cliente.component';
-import { CadastroComponent } from './components/home/cadastro/cadastro.component';
+import {CadastroComponent} from './components/home/cadastro/cadastro.component';
 import {CepService} from './services/cep.service';
 import {NgxMaskModule} from 'ngx-mask';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {NgxMaskModule} from 'ngx-mask';
     HomeComponent,
     LoginComponent,
     ClienteComponent,
-    CadastroComponent
+    CadastroComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

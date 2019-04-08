@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,9 @@ export class HomeComponent implements OnInit {
 
   users = undefined;
 
-  constructor(private userService: UserService) {
+  userDetail = undefined;
+
+  constructor(private userService: UserService, private route: Router) {
 
   }
 
@@ -24,5 +27,11 @@ export class HomeComponent implements OnInit {
       this.users = user;
     });
 
+  }
+
+  showDetails(userId) {
+    this.userService.findById(userId).subscribe(response => {
+      this.userDetail = response;
+    });
   }
 }

@@ -12,6 +12,7 @@
           <th>Bairro</th>
           <th>Cidade</th>
           <th>UF</th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
@@ -24,10 +25,52 @@
             <td>{{user.endereco.bairro}}</td>
             <td>{{user.endereco.cidade}}</td>
             <td>{{user.endereco.uf}}</td>
+            <td>
+              <button class="btn btn-secondary" (click)="showDetails(user.id)">
+                Detalhes
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
-
+    </div>
+  </div>
+  <div class="row d-flex">
+    <div class="col">
+      <div *ngIf="userDetail">
+        <table class="table table-sm table-hover table-striped">
+          <thead>
+          <tr>
+            <th>Telefone</th>
+            <th>Tipo</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let telefone of userDetail.telefones">
+            <td>{{ telefone.numero }}</td>
+            <td>{{ telefone.tipoTelefoneEnum }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex">
+    <div class="col">
+      <div *ngIf="userDetail">
+        <table class="table table-sm table-hover table-striped">
+          <thead>
+          <tr>
+            <th>Email</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let e of userDetail.emails">
+            <td>{{ e.email }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
