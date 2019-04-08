@@ -32,7 +32,11 @@
                  class="form-control" [(ngModel)]="user.endereco.cep"
                  mask="00000-000"
                  required
+                 (blur)="getEndereco()"
                  placeholder="CEP"/>
+          <span *ngIf="viacepMessage" style="color: firebrick">
+            {{viacepMessage}}
+          </span>
         </div>
         <div class="form-group">
           <input type="text"

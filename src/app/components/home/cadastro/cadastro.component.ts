@@ -18,6 +18,7 @@ export class CadastroComponent implements OnInit {
   numeroTelefone: string;
   email: string;
   message: string;
+  viacepMessage: string;
   responseStatus: string;
   confirmPassword: string;
 
@@ -37,8 +38,11 @@ export class CadastroComponent implements OnInit {
   }
 
   getEndereco() {
-    return this.cepService.getEndereco(this.cep).subscribe(response => {
-      console.log(response);
+    return this.cepService.getEndereco(
+      this.user.endereco.cep.replace('-', '')).subscribe(response => {
+        console.log(response);
+    }, err => {
+        this.viacepMessage = "Erro ao solicitar serviço viacep. Por favor preencha o endereço manualmente.";
     })
   }
 
