@@ -13,13 +13,6 @@ export class CepService {
   }
 
   getEndereco(cep: string) {
-
-    return this.http.get(`${VIACEP_API}`.replace('xxxxxxxx', cep), {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, X-Request-With, X-Requested-By'
-      }
-    });
+    return this.http.get(`${VIACEP_API}`.replace('xxxxxxxx', cep));
   }
 }

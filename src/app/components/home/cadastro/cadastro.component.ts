@@ -6,6 +6,7 @@ import {TelefoneModel} from '../../../model/telefone.model';
 import {EmailModel} from '../../../model/email.model';
 import {UserService} from '../../../services/user.service';
 import {Route, Router} from '@angular/router';
+import {CepModel} from '../../../model/cep.model';
 
 @Component({
   selector: 'app-cadastro',
@@ -39,8 +40,13 @@ export class CadastroComponent implements OnInit {
 
   getEndereco() {
     return this.cepService.getEndereco(
-      this.user.endereco.cep.replace('-', '')).subscribe(response => {
-        console.log(response);
+      this.user.endereco.cep.replace('-', '')).subscribe((response: CepModel) => {
+
+        this.user.endereco.logradouro = response.logradouro;
+        this.user.endereco.bairro = response.bairro;
+        this.user.endereco.cidade = response.localidade;
+        this.user.endereco.uf = response.uf;
+
     }, err => {
         this.viacepMessage = "Erro ao solicitar serviço viacep. Por favor preencha o endereço manualmente.";
     })
