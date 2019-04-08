@@ -53,6 +53,17 @@ export class CadastroComponent implements OnInit {
   }
 
   criarUsuario() {
+
+    if (this.user.emails.length == 0) {
+      this.message = 'É necessário cadastar pelo menos um e-mail.';
+      return;
+    }
+
+    if (this.user.telefones.length == 0) {
+      this.message = 'É necessário cadastrar pelo menos um telefone';
+      return;
+    }
+
     return this.userService.createOrUpdate(this.user).subscribe((response :User) => {
       if (response.username != null) {
         this.router.navigate(['/']);
