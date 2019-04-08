@@ -53,22 +53,27 @@ export class CadastroComponent implements OnInit {
   }
 
   adicionarTelefone() {
-    this.user.telefones.push(new TelefoneModel(this.tipoTelefone, this.numeroTelefone));
-    this.tipoTelefone = undefined;
-    this.numeroTelefone = undefined;
+    if (this.numeroTelefone.length > 0) {
+      this.user.telefones.push(new TelefoneModel(this.tipoTelefone, this.numeroTelefone));
+      this.tipoTelefone = undefined;
+      this.numeroTelefone = undefined;
+    }
   }
 
   adicionarEmail() {
 
     let p = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
 
-    if (!p.test(this.email)) {
-      this.message = "Email inválido. Deve manter o formato 'email@email.com'";
-      return;
-    }
+    if (this.email) {
 
-    this.user.emails.push(new EmailModel(this.email));
-    this.email = undefined;
+      if (!p.test(this.email)) {
+        this.message = "Email inválido. Deve manter o formato 'email@email.com'";
+        return;
+      }
+
+      this.user.emails.push(new EmailModel(this.email));
+      this.email = undefined;
+    }
   }
 
   criarUsuario() {
