@@ -1,4 +1,4 @@
-# Projeto desafia CooperSystem (frontend)
+# Projeto desafio CooperSystem (frontend)
 
 1 - Clone o projeto (git clone https://github.com/brunocarneiro312/coopersystem-frontend.git)<br/>
 2 - Execute o comando "npm install" <br/>
