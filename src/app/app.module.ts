@@ -15,6 +15,7 @@ import {AuthGuard} from './components/security/auth.guard';
 import {ClienteComponent} from './components/home/cliente/cliente.component';
 import { CadastroComponent } from './components/home/cadastro/cadastro.component';
 import {CepService} from './services/cep.service';
+import {NgxMaskModule} from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {CepService} from './services/cep.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [
     UserService,

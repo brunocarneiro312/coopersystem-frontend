@@ -64,6 +64,9 @@ export class CadastroComponent implements OnInit {
       return;
     }
 
+    this.user.cpf = this.user.cpf.replace('.', '')
+      .replace('-', '');
+
     return this.userService.createOrUpdate(this.user).subscribe((response :User) => {
       if (response.username != null) {
         this.router.navigate(['/']);
