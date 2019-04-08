@@ -46,7 +46,7 @@
           </thead>
           <tbody class="text-center">
           <tr>
-            <td>{{ userDetail.endereco.cep }}</td>
+            <td>{{ userDetail.endereco.cep | mask: '00000-000' }}</td>
             <td>{{ userDetail.endereco.logradouro }}</td>
             <td>{{ userDetail.endereco.bairro }}</td>
             <td>{{ userDetail.endereco.cidade }}</td>
@@ -72,7 +72,7 @@
           </thead>
           <tbody class="text-center">
           <tr *ngFor="let telefone of userDetail.telefones">
-            <td>{{ telefone.numero }}</td>
+            <td>{{ telefone.numero | mask: '(00) 000000000'}}</td>
             <td>{{ telefone.tipoTelefoneEnum }}</td>
           </tr>
           </tbody>
