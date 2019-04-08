@@ -22,4 +22,15 @@ export class CustomHeaderComponent implements OnInit {
   logout() {
     window.location.href = "/login";
   }
+
+  isAdmin(): boolean {
+    if (this.shared.user) {
+      if (this.shared.user.authorities.length > 0) {
+        if (this.shared.user.authorities[0].authority.substring(5) === 'ADMIN') {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
