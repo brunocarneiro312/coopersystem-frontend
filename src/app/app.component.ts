@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {SharedService} from './services/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend-coopersystem';
+
+  showTemplate: boolean = false;
+
+  public shared: SharedService;
+
+  constructor() {
+    this.shared = SharedService.getIntance();
+  }
+
+  ngOnInit() {
+    this.shared.showTemplate.subscribe(
+      show => this.showTemplate = show
+    );
+  }
 }

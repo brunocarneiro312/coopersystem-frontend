@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row d-flex mt-5">
+    <div class="col">
+
+      <div [className]="responseStatus == 0 ? 'alert alert-warning' : 'alert alert-danger'" role="alert" *ngIf="message">
+        {{ message }}
+      </div>
+
+      <b>Dados do cliente</b>
+      <div class="form-group">
+        <input type="text" name="nome" class="form-control" [(ngModel)]="user.nome" placeholder="Nome"/>
+      </div>
+      <div class="form-group">
+        <input type="text" name="cpf" class="form-control" [(ngModel)]="user.cpf" placeholder="CPF"/>
+      </div>
+
+      <hr>
+
+      <b>Endereço</b>
+      <div class="form-group">
+        <input type="text" name="cep" class="form-control" [(ngModel)]="user.endereco.cep" placeholder="CEP"/>
+      </div>
+      <div class="form-group">
+        <input type="text" name="logradouro" class="form-control" [(ngModel)]="user.endereco.logradouro" placeholder="logradouro"/>
+      </div>
+      <div class="form-group">
+        <input type="text" name="bairro" class="form-control" [(ngModel)]="user.endereco.bairro" placeholder="bairro"/>
+      </div>
+      <div class="form-group">
+        <input type="text" name="cidade" class="form-control" [(ngModel)]="user.endereco.cidade" placeholder="cidade"/>
+      </div>
+      <div class="form-group">
+        <input type="text" name="uf" class="form-control" [(ngModel)]="user.endereco.uf" placeholder="uf"/>
+      </div>
+      <div class="form-group">
+        <input type="text" name="complemento" class="form-control" [(ngModel)]="user.endereco.complemento" placeholder="complemento"/>
+      </div>
+
+      <b>Telefones</b>
+      <div class="form-group">
+        <select name="tipo-telefone" class="form-control" [(ngModel)]="tipoTelefone">
+          <option>-- Selecione --</option>
+          <option value="0">Celular</option>
+          <option value="1">Fixo</option>
+          <option value="2">Comercial</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="text" name="numero-telefone" class="form-control" [(ngModel)]="numeroTelefone" placeholder="Número"/>
+      </div>
+      <div class="form-group text-right">
+        <button class="btn btn-primary" (click)="adicionarTelefone()">
+          Adicionar Contato
+        </button>
+      </div>
+
+      <div class="form-group">
+        <ul>
+          <li *ngFor="let telefone of user.telefones">
+            {{ telefone.numero }}
+          </li>
+        </ul>
+      </div>
+
+      <b>E-mails</b>
+      <div class="form-group">
+        <input type="text" name="email" class="form-control" [(ngModel)]="email" placeholder="email@email.com"/>
+      </div>
+      <div class="form-group text-right">
+        <button class="btn btn-primary" (click)="adicionarEmail()">
+          Adicionar Email
+        </button>
+      </div>
+
+      <div class="form-group">
+        <ul>
+          <li *ngFor="let e of user.emails">
+            {{ e.email }}
+          </li>
+        </ul>
+      </div>
+
+      <b>Credenciais de acesso</b>
+      <div class="form-group">
+        <input type="text" name="email" class="form-control" [(ngModel)]="user.username" placeholder="username"/>
+      </div>
+      <div class="form-group">
+        <input type="password" name="email" class="form-control" [(ngModel)]="user.password" placeholder="password"/>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success" (click)="criarUsuario()">
+          Cadastrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

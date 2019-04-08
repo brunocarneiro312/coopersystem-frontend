@@ -41,7 +41,7 @@ export class UserService {
    * @param page
    * @param count
    */
-  findAll(page: number, count: number) {
+  findAll() {
     return this.http.get(`${COOPERSYSTEM_API}/api/user`);
   }
 

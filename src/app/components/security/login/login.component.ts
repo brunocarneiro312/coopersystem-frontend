@@ -12,7 +12,10 @@ import {CurrentUser} from '../../../model/current-user.model';
 })
 export class LoginComponent implements OnInit {
 
-  user = new User('','','',[]);
+  user = new User('','','','',
+    '', true, undefined,
+    undefined, [], []);
+
   shared: SharedService;
   message: string;
   responseStatus: string;
@@ -41,20 +44,22 @@ export class LoginComponent implements OnInit {
       this.shared.user = null;
       this.shared.showTemplate.emit(false);
       this.responseStatus = err.status;
-
+      this.user.username = undefined;
+      this.user.password = undefined;
       if (err.status !== 0) {
         this.message = `${err.error} (${err.status})`;
       }
       else {
         this.message = "Serviço indisponível.";
       }
-
     });
   }
 
   cancelLogin() {
     this.message = '';
-    this.user = new User('','','',[]);
+    this.user = new User('','','','',
+      '', true, undefined,
+      undefined, [], []);
     window.location.href = '/login';
     window.location.reload();
   }

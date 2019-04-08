@@ -6,17 +6,22 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="">Início <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Clientes</a>
+        <a class="nav-link" routerLink="cliente">Clientes</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Cadastro</a>
+      <li class="nav-item" [hidden]="false">
+        <a class="nav-link" routerLink="cadastro">Cadastro</a>
       </li>
     </ul>
-    <span class="navbar-text">
-      <a href="#" class="nav-link" (click)="logout()">Logout</a>
+    <span class="navbar-text" *ngIf="shared.user">
+      {{ shared.user.username | titlecase }} | {{ shared.user.authorities[0].authority.substring(5) | uppercase }}
+    </span>
+    <span class="navbar-text pl-3">
+      <button class="btn btn-light" (click)="logout()">
+        Logout
+      </button>
     </span>
   </div>
 </nav>

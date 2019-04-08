@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SharedService} from '../services/shared.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-custom-header',
@@ -8,21 +9,17 @@ import {SharedService} from '../services/shared.service';
 })
 export class CustomHeaderComponent implements OnInit {
 
-  sharedService: SharedService;
+  public shared: SharedService;
 
-  constructor() {
-    this.sharedService = SharedService.getIntance();
+  constructor(private router: Router) {
+    this.shared = SharedService.getIntance();
   }
 
   ngOnInit() {
-    console.log("================");
-    console.log(this.sharedService.user);
-    console.log("================");
+
   }
 
   logout() {
-    console.log(this.sharedService.user);
-    this.sharedService.user = undefined;
-    console.log(this.sharedService.user);
+    window.location.href = "/login";
   }
 }
